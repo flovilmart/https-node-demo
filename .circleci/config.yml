@@ -1,0 +1,26 @@
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    docker: # run the steps with Docker
+      - image: circleci/node
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+      - run:
+          name: install-npm-wee
+          command: npm install
+			- run:
+					command: sudo echo "127.0.0.1 local.server" >> /etc/hosts 
+			- run: set everything up
+					command: ./setup.sh
+      - run: # run tests
+          name: run server 
+          command: node app.js
+					background: true
+      - run: # run tests
+          name: run proxy 
+          command: node proxy.js
+					background: true
+      - run: # run coverage report
+          name: test
+          command: curl https://local.server/
+
