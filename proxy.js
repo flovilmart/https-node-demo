@@ -12,4 +12,4 @@ httpProxy.createServer({
     key: fs.readFileSync('local.server.key', 'utf8'),
     cert: fs.readFileSync('local.server.cert', 'utf8')
   }
-}).listen(443);
+}).listen(443, () => console.log('proxy started'));

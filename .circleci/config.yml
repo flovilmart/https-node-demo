@@ -16,8 +16,10 @@ jobs: # a collection of steps
           background: true
       - run:
           name: run proxy 
-          command: node proxy.js
+          command: sudo node proxy.js
           background: true
+      - run:
+          command: sleep 2
       - run: # run coverage report
           name: test
           command: curl https://local.server/
