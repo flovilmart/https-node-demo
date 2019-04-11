@@ -1,7 +1,7 @@
 CN=local.server
 
 # append the CN
-sudo echo "127.0.0.1 $CN" >> /etc/hosts
+echo "127.0.0.1 $CN" >> /etc/hosts
 
 openssl req \
     -new \
