@@ -22,5 +22,5 @@ jobs: # a collection of steps
           command: sleep 2
       - run: # run coverage report
           name: test
-          command: curl https://local.server/
+          command: curl -k https://local.server/
 
