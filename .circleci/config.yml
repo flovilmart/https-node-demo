@@ -2,14 +2,14 @@ version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
-      - image: circleci/node
+      - image: node
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       - run:
           name: install-npm-wee
           command: npm install
       - run:
-          command: sudo echo "127.0.0.1 local.server" >> /etc/hosts 
+          command: 
       - run:
           command: ./setup.sh
       - run:
