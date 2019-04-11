@@ -8,18 +8,18 @@ jobs: # a collection of steps
       - run:
           name: install-npm-wee
           command: npm install
-			- run:
-					command: sudo echo "127.0.0.1 local.server" >> /etc/hosts 
-			- run: set everything up
-					command: ./setup.sh
-      - run: # run tests
+      - run:
+          command: sudo echo "127.0.0.1 local.server" >> /etc/hosts 
+      - run:
+          command: ./setup.sh
+      - run:
           name: run server 
           command: node app.js
-					background: true
-      - run: # run tests
+          background: true
+      - run:
           name: run proxy 
           command: node proxy.js
-					background: true
+          background: true
       - run: # run coverage report
           name: test
           command: curl https://local.server/
